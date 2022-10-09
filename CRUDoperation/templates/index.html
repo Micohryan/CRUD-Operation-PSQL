@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title> CRUD operation with PSQL</title>
+</head>
+<body>
+    <center>
+        <h1> How to create CRUD with PSQL</h1>
+        <h3> django web tutorials</h3>
+        <a href = "{% url 'insertTemp' %}"> Create new Employee</a>
+        <table border = '1'>
+            <tr>
+                <th>Employee ID </th>
+                <th>Employee Name </th>
+                <th>Email </th>
+                <th>Occupation</th>
+                <th>Salary</th>
+                <th>Gender</th>
+            </tr>
+            {% for result in  data %}
+            <tr>
+                <td>{{result.id}} </td>
+                <td>{{result.empname}} </td>
+                <td>{{result.email}}</td>
+                <td>{{result.occupation}}</td>
+                <td>{{result.salary}}</td>
+                <td>{{result.gender}}</td>
+                <td><a href ="edit/{{result.id}}">Edit </a></td>
+                <td><a href ="delete/{{result.id}}" onclick="return confirm('Are your sure you want to delete')">Delete </a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
